@@ -6,7 +6,7 @@
 #
 # This is a Python 2.6- version of the same file at level up
 #
-from pysnmp.hlapi.asyncore import cmdgen
+from pysnmp.hlapi.asyncio import cmdgen
 from pysnmp.hlapi.varbinds import *
 from pysnmp.proto.rfc1905 import endOfMibView
 from pysnmp.proto import errind

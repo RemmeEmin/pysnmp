@@ -19,8 +19,8 @@ The Command Receiver below uses two distinct transports for communication
 with Command Generators - UDP over IPv4 and UDP over IPv6.
 
 """  #
-from pysnmp.carrier.asyncore.dispatch import AsyncoreDispatcher
-from pysnmp.carrier.asyncore.dgram import udp, udp6, unix
+from pysnmp.carrier.asyncio.dispatch import asyncioDispatcher
+from pysnmp.carrier.asyncio.dgram import udp, udp6, unix
 from pyasn1.codec.ber import encoder, decoder
 from pysnmp.proto import api
 import time, bisect
@@ -142,7 +142,7 @@ def cbFun(transportDispatcher, transportDomain, transportAddress, wholeMsg):
     return wholeMsg
 
 
-transportDispatcher = AsyncoreDispatcher()
+transportDispatcher = asyncioDispatcher()
 transportDispatcher.registerRecvCbFun(cbFun)
 
 # UDP/IPv4

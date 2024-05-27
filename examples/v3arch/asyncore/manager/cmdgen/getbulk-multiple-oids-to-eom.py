@@ -17,7 +17,7 @@ This script performs similar to the following Net-SNMP command:
 """  #
 from pysnmp.entity import engine, config
 from pysnmp.entity.rfc3413 import cmdgen
-from pysnmp.carrier.asyncore.dgram import udp
+from pysnmp.carrier.asyncio.dgram import udp
 
 # Create SNMP engine instance
 snmpEngine = engine.SnmpEngine()

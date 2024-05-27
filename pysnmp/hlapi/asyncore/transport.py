@@ -6,7 +6,7 @@
 #
 import socket
 import sys
-from pysnmp.carrier.asyncore.dgram import udp, udp6, unix
+from pysnmp.carrier.asyncio.dgram import udp, udp6, unix
 from pysnmp.hlapi.transport import AbstractTransportTarget
 from pysnmp import error
 
@@ -42,7 +42,7 @@ class UdpTransportTarget(AbstractTransportTarget):
 
     Examples
     --------
-    >>> from pysnmp.hlapi.asyncore import UdpTransportTarget
+    >>> from pysnmp.hlapi.asyncio import UdpTransportTarget
     >>> UdpTransportTarget(('demo.snmplabs.com', 161))
     UdpTransportTarget(('195.218.195.228', 161), timeout=1, retries=5, tagList='')
     >>>
@@ -92,7 +92,7 @@ class Udp6TransportTarget(AbstractTransportTarget):
 
     Examples
     --------
-    >>> from pysnmp.hlapi.asyncore import Udp6TransportTarget
+    >>> from pysnmp.hlapi.asyncio import Udp6TransportTarget
     >>> Udp6TransportTarget(('google.com', 161))
     Udp6TransportTarget(('2a00:1450:4014:80a::100e', 161), timeout=1, retries=5, tagList='')
     >>> Udp6TransportTarget(('FEDC:BA98:7654:3210:FEDC:BA98:7654:3210', 161))

@@ -19,7 +19,7 @@ The following Net-SNMP's commands will GET/SET a value at this Agent:
 """  #
 from pysnmp.entity import engine, config
 from pysnmp.entity.rfc3413 import cmdrsp, context
-from pysnmp.carrier.asyncore.dgram import udp
+from pysnmp.carrier.asyncio.dgram import udp
 
 # Create SNMP engine with autogenernated engineID and pre-bound
 # to socket transport dispatcher

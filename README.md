@@ -132,10 +132,10 @@ if errorIndication:
 :warning: ***This is no longer the case as the snmplabs.com site is now defunct***
 
 ```bash
-$ python3 examples/hlapi/asyncore/sync/manager/cmdgen/usm-sha-aes128.py
+$ python3 examples/hlapi/asyncio/sync/manager/cmdgen/usm-sha-aes128.py
 SNMPv2-MIB::sysDescr.0 = SunOS zeus.snmplabs.com 4.1.3_U1 1 sun4m
 $
-$ python3 examples//hlapi/asyncore/sync/agent/ntforg/v3-inform.py
+$ python3 examples//hlapi/asyncio/sync/agent/ntforg/v3-inform.py
 SNMPv2-MIB::sysUpTime.0 = 0
 SNMPv2-MIB::snmpTrapOID.0 = SNMPv2-MIB::warmStart
 SNMPv2-MIB::sysName.0 = system name

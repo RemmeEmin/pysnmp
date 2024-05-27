@@ -18,7 +18,7 @@ Functionally similar to:
 
 """  #
 from pysnmp.entity import engine, config
-from pysnmp.carrier.asyncore.dgram import udp
+from pysnmp.carrier.asyncio.dgram import udp
 from pysnmp.entity.rfc3413 import ntforg
 from pysnmp.proto.api import v2c
 

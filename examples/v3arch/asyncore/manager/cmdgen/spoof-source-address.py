@@ -24,7 +24,7 @@ binding to it (via openClientMode() parameter).
 
 """  #
 from pysnmp.entity import engine, config
-from pysnmp.carrier.asyncore.dgram import udp
+from pysnmp.carrier.asyncio.dgram import udp
 from pysnmp.entity.rfc3413 import cmdgen
 
 # Create SNMP engine instance
@@ -45,7 +45,7 @@ config.addTargetParams(snmpEngine, "my-creds", "my-area", "noAuthNoPriv", 0)
 # a target name
 #
 
-# Initialize asyncore-based UDP/IPv4 transport
+# Initialize asyncio-based UDP/IPv4 transport
 udpSocketTransport = udp.UdpSocketTransport().openClientMode()
 
 # Use sendmsg()/recvmsg() for socket communication (required for

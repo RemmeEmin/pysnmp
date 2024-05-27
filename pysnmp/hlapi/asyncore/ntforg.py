@@ -10,7 +10,7 @@ from pysnmp.hlapi.auth import *
 from pysnmp.hlapi.context import *
 from pysnmp.hlapi.lcd import *
 from pysnmp.hlapi.varbinds import *
-from pysnmp.hlapi.asyncore.transport import *
+from pysnmp.hlapi.asyncio.transport import *
 
 __all__ = ['sendNotification']
 
@@ -35,7 +35,7 @@ def sendNotification(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer
         address.
 
@@ -102,7 +102,7 @@ def sendNotification(snmpEngine, authData, transportTarget, contextData,
 
     Examples
     --------
-    >>> from pysnmp.hlapi.asyncore import *
+    >>> from pysnmp.hlapi.asyncio import *
     >>>
     >>> snmpEngine = SnmpEngine()
     >>> sendNotification(

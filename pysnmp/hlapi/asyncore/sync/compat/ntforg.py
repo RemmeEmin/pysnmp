@@ -6,7 +6,7 @@
 #
 # This is a Python 2.6- version of the same file at level up
 #
-from pysnmp.hlapi.asyncore import ntforg
+from pysnmp.hlapi.asyncio import ntforg
 
 __all__ = ['sendNotification', 'next']
 

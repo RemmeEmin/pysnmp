@@ -10,7 +10,7 @@ from pysnmp.hlapi.auth import *
 from pysnmp.hlapi.context import *
 from pysnmp.hlapi.lcd import *
 from pysnmp.hlapi.varbinds import *
-from pysnmp.hlapi.asyncore.transport import *
+from pysnmp.hlapi.asyncio.transport import *
 
 __all__ = ['getCmd', 'nextCmd', 'setCmd', 'bulkCmd', 'isEndOfMib']
 
@@ -36,7 +36,7 @@ def getCmd(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer
         address.
 
@@ -93,7 +93,7 @@ def getCmd(snmpEngine, authData, transportTarget, contextData,
 
     Examples
     --------
-    >>> from pysnmp.hlapi.asyncore import *
+    >>> from pysnmp.hlapi.asyncio import *
     >>> def cbFun(snmpEngine, sendRequestHandle, errorIndication, errorStatus, errorIndex, varBinds, cbCtx):
     ...     print(errorIndication, errorStatus, errorIndex, varBinds)
     >>>
@@ -149,7 +149,7 @@ def setCmd(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer
         address.
 
@@ -206,7 +206,7 @@ def setCmd(snmpEngine, authData, transportTarget, contextData,
 
     Examples
     --------
-    >>> from pysnmp.hlapi.asyncore import *
+    >>> from pysnmp.hlapi.asyncio import *
     >>> def cbFun(snmpEngine, sendRequestHandle, errorIndication, errorStatus, errorIndex, varBinds, cbCtx):
     ...     print(errorIndication, errorStatus, errorIndex, varBinds)
     >>>
@@ -260,7 +260,7 @@ def nextCmd(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer
         address.
 
@@ -319,7 +319,7 @@ def nextCmd(snmpEngine, authData, transportTarget, contextData,
 
     Examples
     --------
-    >>> from pysnmp.hlapi.asyncore import *
+    >>> from pysnmp.hlapi.asyncio import *
     >>> def cbFun(snmpEngine, sendRequestHandle, errorIndication, errorStatus, errorIndex, varBinds, cbCtx):
     ...     print(errorIndication, errorStatus, errorIndex, varBinds)
     >>>
@@ -373,7 +373,7 @@ def bulkCmd(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer
         address.
 
@@ -460,7 +460,7 @@ def bulkCmd(snmpEngine, authData, transportTarget, contextData,
 
     Examples
     --------
-    >>> from pysnmp.hlapi.asyncore import *
+    >>> from pysnmp.hlapi.asyncio import *
     >>> def cbFun(snmpEngine, sendRequestHandle, errorIndication, errorStatus, errorIndex, varBinds, cbCtx):
     ...     print(errorIndication, errorStatus, errorIndex, varBinds)
     >>>

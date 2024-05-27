@@ -22,8 +22,8 @@ The following Net-SNMP commands will produce similar SNMP notification:
 | $ snmptrap -v1 -c public udp6:[::1] 1.3.6.1.4.1.20408.4.1.1.2 127.0.0.1 1 0 12345
 
 """  #
-from pysnmp.carrier.asyncore.dispatch import AsyncoreDispatcher
-from pysnmp.carrier.asyncore.dgram import udp, udp6, unix
+from pysnmp.carrier.asyncio.dispatch import asyncioDispatcher
+from pysnmp.carrier.asyncio.dgram import udp, udp6, unix
 from pyasn1.codec.ber import encoder
 from pysnmp.proto import api
 
@@ -46,7 +46,7 @@ pMod.apiMessage.setDefaults(trapMsg)
 pMod.apiMessage.setCommunity(trapMsg, "public")
 pMod.apiMessage.setPDU(trapMsg, trapPDU)
 
-transportDispatcher = AsyncoreDispatcher()
+transportDispatcher = asyncioDispatcher()
 
 # UDP/IPv4
 transportDispatcher.registerTransport(

@@ -8,12 +8,12 @@ from pysnmp.proto.rfc1902 import *
 from pysnmp.smi.rfc1902 import *
 from pysnmp.hlapi.auth import *
 from pysnmp.hlapi.context import *
-from pysnmp.hlapi.asyncore.transport import *
+from pysnmp.hlapi.asyncio.transport import *
 from pysnmp.entity.engine import *
 
 try:
-    from pysnmp.hlapi.asyncore.sync.cmdgen import *
-    from pysnmp.hlapi.asyncore.sync.ntforg import *
+    from pysnmp.hlapi.asyncio.sync.cmdgen import *
+    from pysnmp.hlapi.asyncio.sync.ntforg import *
 except SyntaxError:
-    from pysnmp.hlapi.asyncore.sync.compat.cmdgen import *
-    from pysnmp.hlapi.asyncore.sync.compat.ntforg import *
+    from pysnmp.hlapi.asyncio.sync.compat.cmdgen import *
+    from pysnmp.hlapi.asyncio.sync.compat.ntforg import *

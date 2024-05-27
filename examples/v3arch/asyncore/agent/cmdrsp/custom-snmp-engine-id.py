@@ -18,7 +18,7 @@ The following Net-SNMP command will walk this Agent:
 """  #
 from pysnmp.entity import engine, config
 from pysnmp.entity.rfc3413 import cmdrsp, context
-from pysnmp.carrier.asyncore.dgram import udp
+from pysnmp.carrier.asyncio.dgram import udp
 from pysnmp.proto import rfc1902
 
 # Create SNMP engine

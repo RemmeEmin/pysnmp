@@ -34,7 +34,7 @@ Revision 4.4.10, released 2019-07-29
 - Received MIB objects resolution made more forgiving to errors, added
   optional `ignoreErrors` parameter to `ObjectType.resolveWithMib()` to
   control that behaviour.
-- Fixed asyncore main loop to respect non-default timer resolution
+- Fixed asyncio main loop to respect non-default timer resolution
 - Fixed `.setTimerResolution()` behaviour of abstract main loop dispatcher
   to update call intervals of the existing periodic dispatcher jobs
 - Fixed `var-bindings` initialization to prevent pyasn1 encoder failures
@@ -339,12 +339,12 @@ Revision 4.3.0, released 2015-09-28
   * Oneliner API reworked to become more generic: its LCD configuration
     shortcuts and and var-bindings processing code split off SNMP apps
     classes to stand-alone objects. The whole API also moved up in package
-    naming hierarchy and becomes 'pysnmp.hlapi.asyncore' (hlapi is
+    naming hierarchy and becomes 'pysnmp.hlapi.asyncio' (hlapi is
     apparently an African fish). Old oneliner API remains fully operational
     at its original location.
   * Synchronous oneliner apps redesigned to offer Python generator-based
     API along with a more comprehensive set of accepted parameters.
-  * Asyncore-based asynchronous apps reworked to become functions.
+  * asyncio-based asynchronous apps reworked to become functions.
   * Twisted API moved entirely into high-level domain to be aligned with
     other high-level APIs. This WILL BREAK backward compatibility for
     those apps that use Twisted API.
@@ -362,10 +362,10 @@ Revision 4.3.0, released 2015-09-28
   coroutines-based SNMP Applications interfaces added. Both IPv4 and IPv6
   datagram transports are currently supported.
 - Original asynsock transport and AsyncsockDispatcher renamed into 
-  asyncore and AsyncoreDispatcher respectively to provide better hint
+  asyncio and asyncioDispatcher respectively to provide better hint
   to fellow devs on the underlying transport being used. Backward
   compatibility preserved.
-- The asyncore-based transport subsystem extended to support POSIX
+- The asyncio-based transport subsystem extended to support POSIX
   sendmsg()/recvmsg() based socket communication what could be used,
   among other things, in the context of a transparent SNMP proxy 
   application. Technically, the following features were brought
@@ -472,7 +472,7 @@ Revision 4.3.0, released 2015-09-28
 - Fix to licensing terms of multiple twisted backend modules to make
   the whole pysnmp package licensed under BSD 2-Clause license. This
   change has been explicitly permitted by the original modules authors.
-- Fix to asyncore-based transport not to use asyncore's cheap inheritance
+- Fix to asyncio-based transport not to use asyncio's cheap inheritance
   from socket object what caused warnings.
 - Fix at NotificationOriginator to make is using MibInstrumentationController
   when expanding Notification OBJECTS into Managed Objects Instances.
@@ -525,7 +525,7 @@ Revision 4.2.5, released 2013-10-02
 - Distribute is gone, switched to setuptools completely.
 - The snmpCommunityTable row selection improved to follow RFC2576, clause
   5.2.1.
-- Asyncore-based dispatcher attempts to use poll() whenever available
+- asyncio-based dispatcher attempts to use poll() whenever available
   on the platform. It would help handling a really large number (>1024) 
   of file descriptors.
 - AsynCommandGenerator.makeReadVarBinds() generalized into a new
@@ -581,8 +581,8 @@ Revision 4.2.5, released 2013-10-02
   on shutdown.
 - Fix to Twisted-based dispatcher not to close transport on unregistration
   at dispatcher as transports can potentially be reused elsewhere.
-- Fix to asyncore-based transport to work only with AsynsockDispatcher's
-  socket map and not to touch default asyncore's one. The latter have caused
+- Fix to asyncio-based transport to work only with AsynsockDispatcher's
+  socket map and not to touch default asyncio's one. The latter have caused
   dispatcher/transport restarting issues.
 - The delV3User() function improved to drop all rows from USM table that
   were cloned from the target one.
@@ -1108,7 +1108,7 @@ Revision 4.1.9a, released 2007-11-28
 - UNSTABLE ALPHA RELEASE.
 - At onliner CommandGenerator, close transport on destruction to
   prevent socket leak. Implicit async transports registration at
-  default asyncore's socket map has been disabled to avoid side
+  default asyncio's socket map has been disabled to avoid side
   effects.
 - Fix to rfc2576.v1ToV2c() PDU converter to perform noSuchName error code
   translation.
@@ -1117,10 +1117,10 @@ Revision 4.1.9a, released 2007-11-28
 - Fix to nonRepeaters object use as sequence slicer (must be int) at
   cmdrsp.CommandResponderApplication
 - Make AsynsockDispatcher using its own socket map by default for 
-  threading safety. This will break asyncore apps that rely on pysnmp 
+  threading safety. This will break asyncio apps that rely on pysnmp 
   sharing the same socket map with them. A solution would  be to either
-  set asyncore map to pysnmp (AsynsockDispatcher.setSocketMap()) or pass
-  pysnmp map (AsynsockDispatcher.getSocketMap()) to asyncore.
+  set asyncio map to pysnmp (AsynsockDispatcher.setSocketMap()) or pass
+  pysnmp map (AsynsockDispatcher.getSocketMap()) to asyncio.
 - Fix to response timeout roundup bug at CommandGenerator and
   NotificationOriginator code.
 - Oneline configuration classes made hashable to prevent memory leaks
@@ -1170,7 +1170,7 @@ Revision 4.1.8a, released 2007-08-14
 - SET Command Responder fixed to obscure access to non-existing variables
   by returning notWritable error (SF bug #1764839).
 - AsynsockDispatcher.setSocketMap() method added to facilitate pysnmp
-  transport integration into third-party asyncore-based applications.
+  transport integration into third-party asyncio-based applications.
 - Fix to errorIndex generation at CommandResponder application, the value
   should be a one-based.
 
@@ -1317,7 +1317,7 @@ Revision 4.1.1a, released 2005-06-29
 Revision 4.0.2a, released 2005-03-01
 ------------------------------------
 
-- Adopted to slightly changed asyncore API (as shipped with python 2,4)
+- Adopted to slightly changed asyncio API (as shipped with python 2,4)
 
 Revision 4.0.1a, released 2004-11-18
 ------------------------------------

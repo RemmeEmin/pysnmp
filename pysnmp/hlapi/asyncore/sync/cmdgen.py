@@ -4,7 +4,7 @@
 # Copyright (c) 2005-2019, Ilya Etingof <etingof@gmail.com>
 # License: http://snmplabs.com/pysnmp/license.html
 #
-from pysnmp.hlapi.asyncore import cmdgen
+from pysnmp.hlapi.asyncio import cmdgen
 from pysnmp.hlapi.varbinds import *
 from pysnmp.proto.rfc1905 import endOfMibView
 from pysnmp.proto import errind
@@ -28,7 +28,7 @@ def getCmd(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer address.
 
     contextData : :py:class:`~pysnmp.hlapi.ContextData`
@@ -133,7 +133,7 @@ def setCmd(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer address.
 
     contextData : :py:class:`~pysnmp.hlapi.ContextData`
@@ -240,7 +240,7 @@ def nextCmd(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer address.
 
     contextData : :py:class:`~pysnmp.hlapi.ContextData`
@@ -425,7 +425,7 @@ def bulkCmd(snmpEngine, authData, transportTarget, contextData,
     authData : :py:class:`~pysnmp.hlapi.CommunityData` or :py:class:`~pysnmp.hlapi.UsmUserData`
         Class instance representing SNMP credentials.
 
-    transportTarget : :py:class:`~pysnmp.hlapi.asyncore.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncore.Udp6TransportTarget`
+    transportTarget : :py:class:`~pysnmp.hlapi.asyncio.UdpTransportTarget` or :py:class:`~pysnmp.hlapi.asyncio.Udp6TransportTarget`
         Class instance representing transport type along with SNMP peer address.
 
     contextData : :py:class:`~pysnmp.hlapi.ContextData`

@@ -19,7 +19,7 @@ receiver:
 
 """  #
 from pysnmp.entity import engine, config
-from pysnmp.carrier.asyncore.dgram import udp, udp6
+from pysnmp.carrier.asyncio.dgram import udp, udp6
 from pysnmp.entity.rfc3413 import ntfrcv
 
 # Create SNMP engine with autogenernated engineID and pre-bound

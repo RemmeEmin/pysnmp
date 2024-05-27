@@ -12,7 +12,7 @@ try:
 except ImportError:
     AF_UNIX = None
 from pysnmp.carrier.base import AbstractTransportAddress
-from pysnmp.carrier.asyncio.dgram.base import DgramSocketTransport
+from pysnmp.carrier.asyncio.dgram.base import DgramAsyncioProtocol
 
 domainName = snmpLocalDomain = (1, 3, 6, 1, 2, 1, 100, 1, 13)
 
@@ -23,7 +23,7 @@ class UnixTransportAddress(str, AbstractTransportAddress):
     pass
 
 
-class UnixSocketTransport(DgramSocketTransport):
+class UnixSocketTransport(DgramAsyncioProtocol):
     sockFamily = AF_UNIX
     addressType = UnixTransportAddress
     _iface = ''
@@ -38,17 +38,17 @@ class UnixSocketTransport(DgramSocketTransport):
             iface = os.path.sep + 'tmp' + os.path.sep + 'pysnmp' + iface
         if os.path.exists(iface):
             os.remove(iface)
-        DgramSocketTransport.openClientMode(self, iface)
+        DgramAsyncioProtocol.openClientMode(self, iface)
         self._iface = iface
         return self
 
     def openServerMode(self, iface):
-        DgramSocketTransport.openServerMode(self, iface)
+        DgramAsyncioProtocol.openServerMode(self, iface)
         self._iface = iface
         return self
 
     def closeTransport(self):
-        DgramSocketTransport.closeTransport(self)
+        DgramAsyncioProtocol.closeTransport(self)
         try:
             os.remove(self._iface)
         except OSError:

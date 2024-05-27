@@ -14,8 +14,8 @@ This script performs similar to the following Net-SNMP command:
 | $ snmpget -v1 -c public -ObentU localhost 1.3.6.1.2.1.1.1.0 1.3.6.1.2.1.1.3.0
 
 """  #
-from pysnmp.carrier.asyncore.dispatch import AsyncoreDispatcher
-from pysnmp.carrier.asyncore.dgram import udp, udp6, unix
+from pysnmp.carrier.asyncio.dispatch import asyncioDispatcher
+from pysnmp.carrier.asyncio.dgram import udp, udp6, unix
 from pyasn1.codec.ber import encoder, decoder
 from pysnmp.proto import api
 from time import time
@@ -65,7 +65,7 @@ def cbRecvFun(
     return wholeMsg
 
 
-transportDispatcher = AsyncoreDispatcher()
+transportDispatcher = asyncioDispatcher()
 
 transportDispatcher.registerRecvCbFun(cbRecvFun)
 transportDispatcher.registerTimerCbFun(cbTimerFun)

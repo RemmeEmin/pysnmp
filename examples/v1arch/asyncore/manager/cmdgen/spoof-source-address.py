@@ -28,8 +28,8 @@ could only get a response if that source address is somehow routed to the
 host this script is running on. Otherwise it just times out.
 
 """  #
-from pysnmp.carrier.asyncore.dispatch import AsyncoreDispatcher
-from pysnmp.carrier.asyncore.dgram import udp
+from pysnmp.carrier.asyncio.dispatch import asyncioDispatcher
+from pysnmp.carrier.asyncio.dgram import udp
 from pysnmp.proto import api
 from pyasn1.codec.ber import encoder, decoder
 from time import time
@@ -89,7 +89,7 @@ def cbRecvFun(
     return wholeMsg
 
 
-transportDispatcher = AsyncoreDispatcher()
+transportDispatcher = asyncioDispatcher()
 
 transportDispatcher.registerRecvCbFun(cbRecvFun)
 transportDispatcher.registerTimerCbFun(cbTimerFun)
